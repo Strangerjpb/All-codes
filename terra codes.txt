@@ -1,3 +1,5 @@
+                                                    INSTANCE CREATION
+
 provider "aws" {
 region = "ap-south-1"
 }
@@ -11,7 +13,8 @@ Name = "web-server"
 }
 
 =========================================================================================================================================
-
+                                                iNSTANCE BY USING VARIABLE
+                                                
 provider "aws" {
 region = "ap-south-1"
 }
@@ -31,6 +34,8 @@ default = "t2.medium"
 }
 
 =========================================================================================================================================
+                                                  3 INSTANCES BY USING VARIABLES
+
 provider "aws" {
 region = "ap-south-1"
 }
@@ -52,6 +57,8 @@ default = "t2.medium"
 
 
 =========================================================================================================================================
+                                                    MULTI VARIABLES
+
 
 provider "aws" {
 region = "ap-south-1"
@@ -81,8 +88,11 @@ default = 2
 
 
 =========================================================================================================================================
-
-vim main.tf 
+                                       INSTANCE BY USING VARIABLE.TF FILE
+                                               
+                                             
+                                             vim main.tf 
+                                              
 
 provider "aws" {
 region = "ap-south-1"
@@ -98,7 +108,7 @@ Name = "web-server"
 }
 
 
-variable.tf 
+                                                 variable.tf 
 
 variable "instance_type" {
 description = "im uisng for my instance variable"
@@ -115,6 +125,8 @@ default = 2
 
 
 =========================================================================================================================================
+                                               CREATE S3 BUCKET, EBS VOLUME & TOKEN
+
 
 provider "aws" {
 region = "ap-south-1"
@@ -144,8 +156,7 @@ resource "aws_efs_file_system" "foo" {
 
 
 =========================================================================================================================================
-
-DAY -02:
+                                                       VARIABLE
 
 provider "aws" {
 region = "us-east-1"
@@ -164,8 +175,11 @@ variable "ami_id" {
 }
 
 =========================================================================================================================================
-main.tf
+                                                       TFVAR FILES
 
+
+
+                                                        main.tf
 provider "aws" {
 region = "us-east-1"
 }
@@ -178,7 +192,7 @@ Name = var.instance_name
 }
 }
 
-variable.tf
+                                                       variable.tf
 
 variable "ami_id" {
 
@@ -192,7 +206,7 @@ variable "instance_name" {
 
 }
 
-swiggy.tfvars
+                                                          swiggy.tfvars
 
 ami_id = "ami-0557a15b87f6559cf"
 
@@ -210,6 +224,9 @@ instance_name = "zomato-dev"
 
 
 =========================================================================================================================================
+                                                   CREATE MULTIPLE USERS 
+
+
 
 provider "aws" {
 region = "us-east-1"
@@ -249,7 +266,7 @@ team = "devops"
 }
 }
 =========================================================================================================================================
-DAY :03
+                                                      VPC, SUBNET & INSTANCE CREATION
 
 provider "aws" {
   region = "ap-south-1"
@@ -286,6 +303,7 @@ resource "aws_instance" "three" {
 
 
 =========================================================================================================================================
+                                                ALIAS & PROVIDERS
 
 provider "aws" {
 region = "ap-south-1"
@@ -314,6 +332,7 @@ Name = "nvirginia"
 }
 
 =========================================================================================================================================
+                                                     FOR-EACH LOOP
 
 provider "aws" {
 region = "ap-south-1"
@@ -332,7 +351,7 @@ default = ["user1", "user2", "user3", "user3"]
 }
 
 =========================================================================================================================================
-DYNMIC BLOCKS:
+                                                      DYNAMIC BLOCKS
 
 locals {
    ingress_rules = [{
