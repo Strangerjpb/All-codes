@@ -1,16 +1,26 @@
 MONOLITHIC    : Single server multiple services single DB.
 MICRO SERVICE : Multiple servers Multiple services with multiple DB's
 
+
+
 how to select the architecture: Based on application and its services.
 
+
+
 in Micro services we dont use servers, we use Containers.
+
+
 
 
 Container: is a Virtual Machine without OS.
 Docker: its a tool used to create Container.
 Image: consist of os & packages which are already installed.
 
+
+
 server = Vm = conatiner
+
+====================================================================================
 
 Docker: 
 
@@ -34,16 +44,20 @@ HOST: The place where you installed docker.
 DAEMON: Deals with docker componets(images, containers, volumes ----). it is inside docker host.
 REGISTRY: It stores all the Images.
 
-============================================
 
-DAY-02:
-Installation:
+====================================================================================
+					
+						Installation
+
 yum install docker -y
 systemctl restart docker.service
 systemctl status docker.service
 docker version
 
-DOCKER COMMANDS:
+====================================================================================
+
+						DOCKER COMMANDS
+
 
 docker pull ubuntu: to get ubuntu image from registry
 docker images : to list the images 
@@ -58,7 +72,10 @@ docker inspect cont-name : to see the full infromation of a container.
 docker attach cont-name : to go inside the container.
 
 
-inside container: note: in ubuntu pkg manager is apt (advance package tool)
+					INSIDE CONTAINER
+
+
+note: in ubuntu pkg manager is apt (advance package tool)
 apt update -y
 apt install maven -y
 apt install mysql-server -y
@@ -73,7 +90,9 @@ docker commit raham2 swiggy:v1     : to create image from container
 
 ====================================================================================
 
-DOCKER FILE: 
+						DOCKER FILE
+
+
 It is an automated method to create docker images.
 in docker file D must be captial.
 in single folder we need to have only one docker file.
@@ -94,15 +113,21 @@ LABEL : Used to attach labels to containers like email, author ----
 ENV   : To pass environment variables (inside the containers)
 args  : to pass value (outside of container)
 
-EXAMPLE-1:
+====================================================================================
+
+					EXAMPLE-1
 
 FROM ubuntu
 RUN apt update -y
 RUN apt install maven -y
 RUN mkdir raham
 RUN touch raham/abc.txt
-================================================
-EXAMPLE-2:
+
+
+====================================================================================
+
+					EXAMPLE-2
+
 FROM ubuntu
 RUN apt update -y
 RUN apt install maven -y
@@ -111,16 +136,25 @@ RUN touch raham/abc.txt
 COPY index.html /tmp
 COPY apache-maven-3.6.3-bin.tar.gz /tmp
 ADD https://dlcdn.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz /opt
-=======================================================
-EXAMPLE-3:
+
+
+====================================================================================
+
+					EXAMPLE-3
+
 FROM ubuntu
 RUN apt update -y
 RUN apt install maven -y
 RUN mkdir raham
 RUN touch raham/abc.txt
 WORKDIR /tmp
-==========================
-EXAMPLE-4:
+
+
+====================================================================================
+
+					EXAMPLE-4
+
+
 FROM ubuntu
 RUN apt update -y
 RUN apt install maven -y
@@ -129,7 +163,10 @@ RUN touch raham/abc.txt
 LABEL user raham
 ENV client swiggy
 
-HISTORY:
+====================================================================================
+
+					HISTORY
+
 
     1  yum install docker -y
     2  systemctl restart docker.service
@@ -206,11 +243,11 @@ HISTORY:
    73  docker ps -a
    74  history
 
-=============================================================================================================================================================
 
-DAY-03:
+====================================================================================
 
-VOLUMES: 
+					VOLUMES 
+
 
 By default when we create a volume the data is also going store on host.
 
@@ -261,7 +298,7 @@ touch file{1..5}
 docker run -it --name cont7 -v /home/ec2-user:/xyz ubuntu
 cd /xyz -- > 11 -- > create files -- > local -- >
 
-================================================================================
+====================================================================================
 
 DOCKER SYSTEM COMMANDS: To show the memory utilization of Docker Components.
 
@@ -282,9 +319,9 @@ docker run -it --name jenkins jenkins/jenkins:lts
 
 ==========================================================================
 
-DEPLOYMENT:
+					DEPLOYMENT PROCESS
 
-vim Dockerfile
+vim Dockerfile:
 
 FROM ubuntu
 RUN apt-get update -y
@@ -299,7 +336,7 @@ docker run -itd --name app1 -p 82:80 image
 82: container port & 80: image port (installed httpd -- > 80)
 
 
-index.html:
+					index.html (DEPLOYEMENT CODE)
 
 <!DOCTYPE html>
 <html>
@@ -477,8 +514,9 @@ window.onclick = function(event) {
 </body>
 </html>
 
+====================================================================================
 
-HISTORY:
+						HISTORY
 
  1  yum install docker -y
     2  docker pull ubuntu
@@ -594,7 +632,9 @@ HISTORY:
 
 ==================================================================================================== 
 
-DAY-04:
+					DOCKER COMPOSE
+
+
 
 DOCKER COMPOSE: Its a tool on docker used to create multiple containers at a single time.
 
@@ -662,7 +702,12 @@ DOCKER HUB: To store our images on central
 
 NOTE: DockerHub will support only image for one repo.
 
-NETWORK:
+
+====================================================================================
+
+					NETWORK
+
+
 
 Docker networks are used to make a communication between the multiple containers that are running on same or different docker hosts. We have different types of docker networks.
 Bridge Network
@@ -687,7 +732,10 @@ apt install iputils-ping -y : command to install ping checks
 To disconnect from the container: docker network disconnect network_name container_name
 To prune: docker network prune
 
-HISTORY:
+====================================================================================
+
+					HISTORY
+
 
    12  yum install docker -y
    13  systemctl start docker
@@ -874,10 +922,10 @@ HISTORY:
   100  docker network rm paytm
   
   
-  ==================================================================
+====================================================================================
   
-  
-  DAY-05:
+					DOCKER SWARM
+
   
   SWARM: Used to manage contaienrs on multiple servers.
 MASTER: Used to create and distribute the containers.
@@ -965,4 +1013,3 @@ HISTORY:
 
 
 ========================================================================================================================================================================
-
